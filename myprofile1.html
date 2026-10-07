@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="description" content="Chris Anne's BSIT student portfolio">
+  <title>Chris Anne | BSIT Student Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --purple-50: #faf5ff;
+      --purple-100: #f3e8ff;
+      --purple-200: #e9d5ff;
+      --purple-300: #d8b4fe;
+      --purple-400: #c084fc;
+      --purple-500: #a855f7;
+      --purple-600: #9333ea;
+      --purple-700: #7e22ce;
+      --purple-800: #6b21a8;
+      --purple-900: #581c87;
+
+      --page-bg: #faf5ff;
+      --surface: #ffffff;
+      --surface-muted: #f5edff;
+      --text: #24113f;
+      --text-muted: #694c88;
+      --border: #e9d5ff;
+      --accent: #9333ea;
+      --accent-hover: #7e22ce;
+      --focus: #c084fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: "DM Sans", sans-serif;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    .site-shell {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      background-color: var(--purple-50);
+      background-image:
+        linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .code-window {
+      background: linear-gradient(145deg, #32105f, #170b2d);
+      box-shadow: 0 24px 80px rgba(88, 28, 135, 0.28);
+    }
+
+    .terminal-line {
+      font-family: "Space Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .cursor {
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-family: "Space Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .soft-card {
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(88, 28, 135, 0.08);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .soft-card:hover {
+      border-color: var(--purple-400);
+      box-shadow: 0 18px 42px rgba(126, 34, 206, 0.18);
+      transform: translateY(-5px);
+    }
+
+    .mobile-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .mobile-panel.is-open {
+      max-height: 420px;
+    }
+
+    .theme-transition,
+    header,
+    section,
+    footer,
+    article,
+    form,
+    input,
+    textarea,
+    button,
+    .mobile-panel {
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    /* Light theme */
+    .page-surface {
+      background: var(--surface);
+    }
+
+    .page-muted {
+      background: var(--surface-muted);
+    }
+
+    .body-text {
+      color: var(--text-muted);
+    }
+
+    .heading-text {
+      color: var(--text);
+    }
+
+    .purple-button {
+      background: var(--accent);
+      color: white;
+    }
+
+    .purple-button:hover {
+      background: var(--accent-hover);
+    }
+
+    .purple-soft {
+      background: var(--purple-100);
+      color: var(--purple-800);
+    }
+
+    /* Dark theme */
+    body.dark-mode {
+      --page-bg: #120b1f;
+      --surface: #211235;
+      --surface-muted: #2b1745;
+      --text: #f8f0ff;
+      --text-muted: #d8b4fe;
+      --border: #542481;
+      --accent: #c084fc;
+      --accent-hover: #d8b4fe;
+      --focus: #e9d5ff;
+
+      background: var(--page-bg);
+      color: var(--text);
+    }
+
+    body.dark-mode header {
+      background: rgba(18, 11, 31, 0.95) !important;
+      border-color: var(--border) !important;
+    }
+
+    body.dark-mode .hero-grid,
+    body.dark-mode #about,
+    body.dark-mode #projects,
+    body.dark-mode #resume {
+      background: var(--page-bg) !important;
+    }
+
+    body.dark-mode #skills,
+    body.dark-mode #education {
+      background: #1a0e2b !important;
+    }
+
+    body.dark-mode #contact {
+      background: #170b2d !important;
+    }
+
+    body.dark-mode footer {
+      background: #0d0616 !important;
+    }
+
+    body.dark-mode .heading-text,
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: var(--text) !important;
+    }
+
+    body.dark-mode .body-text,
+    body.dark-mode p {
+      color: var(--text-muted);
+    }
+
+    body.dark-mode .page-surface,
+    body.dark-mode .soft-card,
+    body.dark-mode .resume-card,
+    body.dark-mode #contact-form {
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+
+    body.dark-mode .page-muted {
+      background: #1a0e2b !important;
+    }
+
+    body.dark-mode .purple-soft {
+      background: var(--surface-muted) !important;
+      color: var(--text-muted) !important;
+    }
+
+    body.dark-mode .nav-link {
+      color: var(--text-muted) !important;
+    }
+
+    body.dark-mode .nav-link:hover {
+      color: var(--accent) !important;
+    }
+
+    body.dark-mode #mobile-menu {
+      background: var(--page-bg) !important;
+      border-color: var(--border) !important;
+    }
+
+    body.dark-mode #mobile-menu a:hover {
+      background: var(--surface-muted) !important;
+    }
+
+    body.dark-mode #contact-form input,
+    body.dark-mode #contact-form textarea {
+      background: #160b26 !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+
+    body.dark-mode #contact-form input::placeholder,
+    body.dark-mode #contact-form textarea::placeholder {
+      color: #a78ac2 !important;
+    }
+
+    body.dark-mode #dark-mode-toggle,
+    body.dark-mode #menu-toggle {
+      color: var(--accent) !important;
+    }
+
+    body.dark-mode #dark-mode-toggle:hover,
+    body.dark-mode #menu-toggle:hover {
+      background: var(--surface-muted) !important;
+    }
+
+    @media print {
+      body {
+        background: white !important;
+      }
+
+      header,
+      #home,
+      #about,
+      #skills,
+      #projects,
+      #education,
+      #contact,
+      footer {
+        display: none !important;
+      }
+
+      #resume {
+        display: block !important;
+        padding: 0 !important;
+      }
+
+      #resume .resume-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      .print-hide {
+        display: none !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 border-b border-purple-200/80 bg-white/90 backdrop-blur">
+      <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4" aria-label="Main navigation">
+        <a href="#home" class="flex items-center gap-3 font-bold heading-text">
+          <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-600 font-mono text-sm text-white">
+            &lt;/&gt;
+          </span>
+          <span>Chris Anne</span>
+        </a>
+
+        <div class="hidden items-center gap-6 text-sm font-semibold md:flex">
+          <a class="nav-link text-purple-900" href="#home">Home</a>
+          <a class="nav-link text-purple-900" href="#about">About</a>
+          <a class="nav-link text-purple-900" href="#skills">Skills</a>
+          <a class="nav-link text-purple-900" href="#projects">Projects</a>
+          <a class="nav-link text-purple-900" href="#education">Education</a>
+          <a class="nav-link text-purple-900" href="#resume">Resume</a>
+          <a class="nav-link text-purple-900" href="#contact">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            id="dark-mode-toggle"
+            type="button"
+            class="rounded-xl p-2 text-purple-700 transition hover:bg-purple-100"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+            title="Switch to dark mode"
+          >
+            <i data-lucide="moon" class="h-5 w-5"></i>
+          </button>
+
+          <button
+            id="menu-toggle"
+            type="button"
+            class="rounded-xl p-2 text-purple-700 transition hover:bg-purple-100 md:hidden"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <i data-lucide="menu" class="h-5 w-5"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="mobile-panel border-t border-purple-100 bg-white md:hidden">
+        <div class="flex flex-col gap-1 px-5 py-4 text-sm font-semibold">
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#home">Home</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#about">About</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#skills">Skills</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#projects">Projects</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#education">Education</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#resume">Resume</a>
+          <a class="rounded-lg px-3 py-2 text-purple-900 hover:bg-purple-50" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="hero-grid border-b border-purple-200">
+        <div class="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
+          <div>
+            <p class="section-kicker mb-5">Portfolio • BSIT Student</p>
+
+            <h1 class="mb-4 text-5xl font-bold tracking-tight heading-text sm:text-6xl">
+              Chris Anne
+            </h1>
+
+            <p class="mb-6 max-w-xl text-lg font-semibold leading-relaxed text-purple-700 dark:text-purple-300">
+              BS Information Technology Student | Programming Enthusiast | Web Development
+            </p>
+
+            <p class="mb-8 max-w-xl text-base leading-7 body-text">
+              An IT student interested in programming, web development, and software development—always learning, building, and looking for meaningful opportunities to contribute.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                class="purple-button inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold shadow-lg shadow-purple-200 transition hover:-translate-y-0.5"
+              >
+                View My Projects
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
+
+              <button
+                id="hero-download"
+                type="button"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-300 bg-white px-5 py-3 font-bold text-purple-700 transition hover:-translate-y-0.5 hover:bg-purple-50 dark:border-purple-700 dark:bg-purple-950 dark:text-purple-200"
+              >
+                <i data-lucide="download" class="h-4 w-4"></i>
+                Download Resume
+              </button>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -inset-5 rounded-full bg-purple-300/30 blur-3xl"></div>
+
+            <div class="code-window relative overflow-hidden rounded-3xl border border-purple-700 p-5 text-slate-100">
+              <div class="mb-8 flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                </div>
+                <span class="font-mono text-xs text-slate-400">chris-anne.js</span>
+              </div>
+
+              <div class="space-y-3">
+                <p class="terminal-line text-purple-300">const future = {</p>
+                <p class="terminal-line pl-5 text-slate-200">
+                  <span class="text-fuchsia-300">focus:</span> "building useful things",
+                </p>
+                <p class="terminal-line pl-5 text-slate-200">
+                  <span class="text-fuchsia-300">learning:</span> ["Java", "Python", "Web"],
+                </p>
+                <p class="terminal-line pl-5 text-slate-200">
+                  <span class="text-fuchsia-300">status:</span> "open to internships"
+                </p>
+                <p class="terminal-line text-purple-300">};</p>
+                <p class="terminal-line pt-5 text-emerald-300">
+                  &gt; let’s create something meaningful<span class="cursor">_</span>
+                </p>
+              </div>
+
+              <div class="mt-10 flex flex-wrap gap-3">
+                <span class="rounded-md border border-purple-300/20 bg-purple-300/10 px-3 py-2 font-mono text-xs text-purple-200">HTML</span>
+                <span class="rounded-md border border-fuchsia-300/20 bg-fuchsia-300/10 px-3 py-2 font-mono text-xs text-fuchsia-200">JAVA</span>
+                <span class="rounded-md border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 font-mono text-xs text-emerald-200">PYTHON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="page-surface py-20">
+        <div class="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+          <div class="relative">
+            <div class="absolute -left-4 -top-4 h-28 w-28 rounded-3xl bg-purple-200"></div>
+
+            <img
+              loading="lazy"
+              class="relative h-80 w-full rounded-3xl object-cover shadow-xl md:h-96"
+              src="chrisanne.png"
+              alt="Chris Anne working on a computer"
+            >
+          </div>
+
+          <div>
+            <p class="section-kicker mb-4">About Me</p>
+
+            <h2 class="mb-5 text-3xl font-bold tracking-tight heading-text">
+              Growing through every line of code.
+            </h2>
+
+            <p class="mb-4 leading-7 body-text">
+              I am Chris Anne, currently a 3rd-year Bachelor of Science in Information Technology student. I enjoy turning ideas into practical digital solutions while strengthening my foundations in technology.
+            </p>
+
+            <p class="leading-7 body-text">
+              My career interests include programming, web development, databases, and application development. I am eager to gain internship experience, collaborate with others, and continue developing useful, thoughtful software.
+            </p>
+
+            <div class="mt-7 rounded-2xl border-l-4 border-purple-600 bg-purple-100 p-5 text-purple-900 dark:bg-purple-950 dark:text-purple-200">
+              <p class="font-semibold leading-6">
+                Currently seeking opportunities to learn from real-world IT teams and contribute with curiosity, care, and growing technical skills.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="page-muted py-20">
+        <div class="mx-auto w-full max-w-6xl px-5">
+          <div class="mb-10 max-w-2xl">
+            <p class="section-kicker mb-4">Skills</p>
+
+            <h2 class="mb-4 text-3xl font-bold tracking-tight heading-text">
+              Tools and strengths I’m developing
+            </h2>
+
+            <p class="leading-7 body-text">
+              A focused foundation across programming, web technologies, databases, and practical software tools.
+            </p>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="soft-card rounded-2xl page-surface p-6">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="code-2" class="h-5 w-5"></i>
+                </span>
+                <h3 class="text-lg font-bold heading-text">Programming</h3>
+              </div>
+              <p class="leading-7 body-text">Java • Python • HTML • CSS</p>
+            </article>
+
+            <article class="soft-card rounded-2xl page-surface p-6">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-fuchsia-100 text-fuchsia-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="panels-top-left" class="h-5 w-5"></i>
+                </span>
+                <h3 class="text-lg font-bold heading-text">Web Development</h3>
+              </div>
+              <p class="leading-7 body-text">HTML5 • CSS • Responsive Design</p>
+            </article>
+
+            <article class="soft-card rounded-2xl page-surface p-6">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-violet-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="database" class="h-5 w-5"></i>
+                </span>
+                <h3 class="text-lg font-bold heading-text">Database</h3>
+              </div>
+              <p class="leading-7 body-text">SQLite • SQL</p>
+            </article>
+
+            <article class="soft-card rounded-2xl page-surface p-6">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="wrench" class="h-5 w-5"></i>
+                </span>
+                <h3 class="text-lg font-bold heading-text">Tools</h3>
+              </div>
+              <p class="leading-7 body-text">VS Code • Android Studio • GitHub • Canva</p>
+            </article>
+
+            <article class="soft-card rounded-2xl page-surface p-6 sm:col-span-2">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-fuchsia-100 text-fuchsia-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="sparkles" class="h-5 w-5"></i>
+                </span>
+                <h3 class="text-lg font-bold heading-text">Other Strengths</h3>
+              </div>
+              <p class="leading-7 body-text">UI Design • Problem Solving • Basic Software Development</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="page-surface py-20">
+        <div class="mx-auto w-full max-w-6xl px-5">
+          <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div class="max-w-2xl">
+              <p class="section-kicker mb-4">Projects</p>
+
+              <h2 class="mb-4 text-3xl font-bold tracking-tight heading-text">
+                Practice projects with practical purpose
+              </h2>
+
+              <p class="leading-7 body-text">
+                A selection of academic and self-directed work exploring systems, databases, web experiences, and application development.
+              </p>
+            </div>
+
+            <span class="purple-soft rounded-full px-4 py-2 text-sm font-semibold">
+              Project links can be added later
+            </span>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <article class="soft-card project-card flex flex-col rounded-2xl page-surface p-6">
+              <i data-lucide="clipboard-check" class="mb-5 h-7 w-7 text-purple-600"></i>
+              <h3 class="mb-3 text-xl font-bold heading-text">Attendance Monitoring System</h3>
+              <p class="mb-5 leading-7 body-text">
+                An attendance management system for recording and monitoring student attendance.
+              </p>
+              <span class="purple-soft mb-6 rounded-lg px-3 py-2 text-sm font-semibold">Java • SQLite • SQL</span>
+              <a href="#contact" class="purple-button mt-auto inline-flex w-fit items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold">
+                View Project
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </article>
+
+            <article class="soft-card project-card flex flex-col rounded-2xl page-surface p-6">
+              <i data-lucide="receipt-text" class="mb-5 h-7 w-7 text-purple-600"></i>
+              <h3 class="mb-3 text-xl font-bold heading-text">Movie Billing Statement System</h3>
+              <p class="mb-5 leading-7 body-text">
+                A database-based billing system using SQLite.
+              </p>
+              <span class="purple-soft mb-6 rounded-lg px-3 py-2 text-sm font-semibold">SQLite • SQL • Java</span>
+              <a href="#contact" class="purple-button mt-auto inline-flex w-fit items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold">
+                View Project
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </article>
+
+            <article class="soft-card project-card flex flex-col rounded-2xl page-surface p-6">
+              <i data-lucide="monitor-play" class="mb-5 h-7 w-7 text-purple-600"></i>
+              <h3 class="mb-3 text-xl font-bold heading-text">Multimedia Web Page</h3>
+              <p class="mb-5 leading-7 body-text">
+                An HTML/CSS multimedia website containing video and audio.
+              </p>
+              <span class="purple-soft mb-6 rounded-lg px-3 py-2 text-sm font-semibold">HTML5 • CSS • Responsive Design</span>
+              <a href="#contact" class="purple-button mt-auto inline-flex w-fit items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold">
+                View Project
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </article>
+
+            <article class="soft-card project-card flex flex-col rounded-2xl page-surface p-6">
+              <i data-lucide="calculator" class="mb-5 h-7 w-7 text-purple-600"></i>
+              <h3 class="mb-3 text-xl font-bold heading-text">Quantity-Price-Discount Calculator</h3>
+              <p class="mb-5 leading-7 body-text">
+                A Java Android application that calculates total price, discount, and amount due.
+              </p>
+              <span class="purple-soft mb-6 rounded-lg px-3 py-2 text-sm font-semibold">Java • Android Studio</span>
+              <a href="#contact" class="purple-button mt-auto inline-flex w-fit items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold">
+                View Project
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </article>
+
+            <article class="soft-card project-card flex flex-col rounded-2xl page-surface p-6 md:col-span-2">
+              <i data-lucide="graduation-cap" class="mb-5 h-7 w-7 text-purple-600"></i>
+              <h3 class="mb-3 text-xl font-bold heading-text">Student Management System</h3>
+              <p class="mb-5 max-w-2xl leading-7 body-text">
+                A Python Tkinter and SQLite CRUD application for managing student records.
+              </p>
+              <span class="purple-soft mb-6 inline-block w-fit rounded-lg px-3 py-2 text-sm font-semibold">Python • Tkinter • SQLite • SQL</span>
+              <a href="#contact" class="purple-button mt-auto inline-flex w-fit items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold">
+                View Project
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="page-muted py-20">
+        <div class="mx-auto w-full max-w-6xl px-5">
+          <div class="mb-10 max-w-2xl">
+            <p class="section-kicker mb-4">Education</p>
+            <h2 class="text-3xl font-bold tracking-tight heading-text">Academic journey</h2>
+          </div>
+
+          <article class="relative overflow-hidden rounded-3xl border border-purple-200 page-surface p-8 shadow-sm">
+            <div class="absolute left-0 top-0 h-full w-2 bg-purple-500"></div>
+
+            <div class="flex flex-col gap-7 md:flex-row md:items-start md:justify-between">
+              <div>
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300">
+                  <i data-lucide="landmark" class="h-6 w-6"></i>
+                </div>
+
+                <h3 class="mb-2 text-2xl font-bold heading-text">
+                  Bachelor of Science in Information Technology
+                </h3>
+
+                <p class="text-lg font-semibold body-text">
+                  Iloilo State University of Fisheries Science and Technology
+                </p>
+              </div>
+
+              <span class="purple-soft rounded-full px-4 py-2 text-sm font-bold">
+                Expected Graduation: May 2028
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Resume -->
+      <section id="resume" class="page-surface py-20">
+        <div class="mx-auto w-full max-w-6xl px-5">
+          <div class="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="section-kicker mb-4">Resume / CV</p>
+              <h2 class="text-3xl font-bold tracking-tight heading-text">
+                A clear, printable professional profile
+              </h2>
+            </div>
+
+            <button
+              id="cv-download"
+              type="button"
+              class="purple-button print-hide inline-flex w-fit items-center gap-2 rounded-xl px-5 py-3 font-bold"
+            >
+              <i data-lucide="download" class="h-4 w-4"></i>
+              Download CV
+            </button>
+          </div>
+
+          <article class="resume-card rounded-3xl border border-purple-200 page-surface p-7 shadow-sm md:p-10">
+            <div class="mb-10 border-b border-purple-200 pb-7">
+              <h3 class="mb-2 text-3xl font-bold heading-text">Chris Anne</h3>
+              <p class="font-semibold text-purple-700 dark:text-purple-300">
+                BS Information Technology Student
+              </p>
+            </div>
+
+            <div class="grid gap-x-12 gap-y-9 md:grid-cols-2">
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Profile</h3>
+                <p class="leading-7 body-text">
+                  3rd-year BSIT student with interests in programming, web development, databases, and application development. Seeking internship and early-career IT opportunities to learn, contribute, and grow.
+                </p>
+              </section>
+
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Education</h3>
+                <p class="whitespace-pre-line leading-7 body-text">Bachelor of Science in Information Technology
+Iloilo State University of Fisheries Science and Technology
+Expected Graduation: May 2028</p>
+              </section>
+
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Technical Skills</h3>
+                <p class="whitespace-pre-line leading-7 body-text">Programming: Java, Python, HTML, CSS
+Web: HTML5, CSS, Responsive Design
+Database: SQLite, SQL
+Tools: VS Code, Android Studio, GitHub, Canva</p>
+              </section>
+
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Projects</h3>
+                <p class="whitespace-pre-line leading-7 body-text">Attendance Monitoring System
+Movie Billing Statement System
+Multimedia Web Page
+Quantity-Price-Discount Calculator
+Student Management System</p>
+              </section>
+
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Achievements</h3>
+                <p class="italic leading-7 body-text">[Add achievements here]</p>
+              </section>
+
+              <section>
+                <h3 class="mb-3 text-lg font-bold heading-text">Contact Information</h3>
+                <p class="whitespace-pre-line leading-7 body-text">Email: [Your email]
+Phone: 09814953127
+<p>
+  GitHub:
+  <a href="https://github.com/annebothered27" target="_blank">
+    https://github.com/annebothered27
+  </a>
+</p>
+
+<p>
+  LinkedIn:
+  <a href="linkedin.com/in/beating-chris-anne-t-7ba052386" target="_blank">
+    YOUR-LINKEDIN-URL
+  </a>
+</p>
+
+              <section class="md:col-span-2">
+                <h3 class="mb-3 text-lg font-bold heading-text">References</h3>
+                <p class="italic leading-7 body-text">[Add references here]</p>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="bg-purple-950 py-20 text-white">
+        <div class="mx-auto grid w-full max-w-6xl gap-12 px-5 lg:grid-cols-2">
+          <div>
+            <p class="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-purple-300">
+              Contact
+            </p>
+
+            <h2 class="mb-5 text-3xl font-bold tracking-tight">
+              Let’s connect and build something useful.
+            </h2>
+
+            <p class="mb-8 max-w-lg leading-7 text-purple-200">
+              I’m open to internships, student opportunities, and conversations about technology, learning, and building better digital experiences.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <i data-lucide="mail" class="mt-1 h-5 w-5 text-purple-300"></i>
+                <div>
+                  <p class="font-bold">Email</p>
+                  <p class="text-purple-200">[Your email]</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <i data-lucide="phone" class="mt-1 h-5 w-5 text-purple-300"></i>
+                <div>
+                  <p class="font-bold">Phone</p>
+                  <p class="text-purple-200">[Your phone number]</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <i data-lucide="map-pin" class="mt-1 h-5 w-5 text-purple-300"></i>
+                <div>
+                  <p class="font-bold">Location</p>
+                  <p class="text-purple-200">[Your location]</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <i data-lucide="github" class="mt-1 h-5 w-5 text-purple-300"></i>
+                <div>
+                  <p class="font-bold">GitHub</p>
+                  <p class="text-purple-200">[Your GitHub URL]</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <i data-lucide="linkedin" class="mt-1 h-5 w-5 text-purple-300"></i>
+                <div>
+                  <p class="font-bold">LinkedIn</p>
+                  <p class="text-purple-200">[Your LinkedIn URL]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form
+            id="contact-form"
+            class="rounded-3xl bg-white p-6 text-purple-950 shadow-2xl md:p-8"
+            novalidate
+          >
+            <h3 class="mb-6 text-2xl font-bold">Send a message</h3>
+
+            <div class="mb-5">
+              <label class="mb-2 block text-sm font-bold" for="contact-name">Name</label>
+              <input
+                id="contact-name"
+                type="text"
+                required
+                minlength="2"
+                autocomplete="name"
+                class="w-full rounded-xl border border-purple-300 px-4 py-3 text-purple-950 outline-none focus:border-purple-500"
+                placeholder="Your name"
+              >
+            </div>
+
+            <div class="mb-5">
+              <label class="mb-2 block text-sm font-bold" for="contact-email">Email</label>
+              <input
+                id="contact-email"
+                type="email"
+                required
+                autocomplete="email"
+                class="w-full rounded-xl border border-purple-300 px-4 py-3 text-purple-950 outline-none focus:border-purple-500"
+                placeholder="you@example.com"
+              >
+            </div>
+
+            <div class="mb-6">
+              <label class="mb-2 block text-sm font-bold" for="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                required
+                minlength="10"
+                rows="5"
+                class="w-full resize-y rounded-xl border border-purple-300 px-4 py-3 text-purple-950 outline-none focus:border-purple-500"
+                placeholder="Write your message here..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-5 py-3 font-bold text-white transition hover:bg-purple-700"
+            >
+              <i data-lucide="send" class="h-4 w-4"></i>
+              Send Message
+            </button>
+
+            <p
+              id="form-status"
+              class="mt-4 hidden rounded-xl border p-4 text-sm leading-6"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0d0616] py-10 text-purple-200">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-7 px-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="mb-2 text-xl font-bold text-white">Chris Anne</p>
+          <p class="max-w-sm text-sm leading-6 text-purple-300">
+            BSIT student portfolio — learning, building, and growing through technology.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+          <a href="#home" class="hover:text-white">Home</a>
+          <a href="#projects" class="hover:text-white">Projects</a>
+          <a href="#resume" class="hover:text-white">Resume</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-8 w-full max-w-6xl border-t border-purple-900 px-5 pt-6">
+        <p class="text-sm text-purple-400">
+          © 2026 Chris Anne. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      const darkModeButton = document.getElementById("dark-mode-toggle");
+      const menuButton = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      /*
+       * Restore the saved theme.
+       * If the user has not selected a theme, use the device preference.
+       */
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (savedTheme === "dark" || (savedTheme === null && prefersDark)) {
+        document.body.classList.add("dark-mode");
+      }
+
+      function updateThemeIcon() {
+        if (!darkModeButton) return;
+
+        const isDark = document.body.classList.contains("dark-mode");
+        const icon = darkModeButton.querySelector("[data-lucide]");
+
+        if (icon) {
+          icon.setAttribute("data-lucide", isDark ? "sun" : "moon");
+        }
+
+        darkModeButton.setAttribute(
+          "aria-label",
+          isDark ? "Switch to light mode" : "Switch to dark mode"
+        );
+
+        darkModeButton.setAttribute(
+          "title",
+          isDark ? "Switch to light mode" : "Switch to dark mode"
+        );
+
+        darkModeButton.setAttribute("aria-pressed", String(isDark));
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+
+        lucide.createIcons();
+      }
+
+      updateThemeIcon();
+
+      darkModeButton?.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark-mode");
+
+        localStorage.setItem(
+          "portfolio-theme",
+          isDark ? "dark" : "light"
+        );
+
+        updateThemeIcon();
+      });
+
+      menuButton?.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("is-open");
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+
+        const icon = menuButton.querySelector("[data-lucide]");
+
+        if (icon) {
+          icon.setAttribute("data-lucide", isOpen ? "x" : "menu");
+          lucide.createIcons();
+        }
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("is-open");
+          menuButton?.setAttribute("aria-expanded", "false");
+          menuButton?.setAttribute("aria-label", "Open navigation menu");
+
+          const icon = menuButton?.querySelector("[data-lucide]");
+
+          if (icon) {
+            icon.setAttribute("data-lucide", "menu");
+            lucide.createIcons();
+          }
+        });
+      });
+
+      function printResume() {
+        document
+          .getElementById("resume")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+
+        setTimeout(() => {
+          window.print();
+        }, 350);
+      }
+
+      document
+        .getElementById("hero-download")
+        ?.addEventListener("click", printResume);
+
+      document
+        .getElementById("cv-download")
+        ?.addEventListener("click", printResume);
+
+      const contactForm = document.getElementById("contact-form");
+      const formStatus = document.getElementById("form-status");
+
+      contactForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        formStatus.className =
+          "mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800";
+
+        formStatus.textContent =
+          "Thank you for your message. This form is ready to connect to an email or form service.";
+
+        contactForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
